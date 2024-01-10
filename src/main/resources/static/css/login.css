@@ -1,0 +1,140 @@
+/*태그 초기화*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    font: normal 12px '돋움';
+}
+ul, ol{list-style: none;}
+a {text-decoration: none; color: #111;}
+input,textarea {outline: none;}
+
+
+
+.content_top{
+    font-size:25px;
+    font:bold;
+    width:100%;
+    margin-top:15%;
+    text-align:center;
+}
+
+
+.content_main{
+    padding-top:3%;
+    padding-left: 37%;
+}
+
+
+.input_id_row{
+    display:flex;
+    width:40%;
+    border: solid 1px #f7f7f7;
+    border-radius:3px;
+}
+
+.input_id_row input{
+    border:none;
+    outline: none;
+    width:100%;
+}
+
+
+.img_id img{
+    padding-top:3px;
+    margin-left:10px;
+    width:23px;
+    height:27px;
+    margin-top: 8px;
+}
+
+.input_id{
+    margin-left:10px;
+    width: 40%;
+    height: 45px;
+}
+
+
+.input_pw_row{
+    margin-top:2px;
+    display:flex;
+    width:40%;
+    border: solid 1px #f7f7f7;
+    border-radius:3px;
+}
+
+.input_pw_row input{
+    border:none;
+    outline: none;
+    width:100%;
+}
+
+.img_pw img{
+    padding-top:3px;
+    margin-left:10px;
+    width:23px;
+    height:27px;
+    margin-top: 8px;
+}
+
+.input_pw{
+    margin-left:10px;
+    width: 40%;
+    height: 45px;
+}
+
+
+.login_btn_row input{
+    background-color:#f7f7f7;
+    border:none;
+    border-radius:3px;
+}
+
+
+.login_btn{
+    margin-top: 3%;
+    width: 40%;
+    height: 50px;
+}
+
+
+.content_bottom{
+    margin-top:10px;
+    width:40%;
+    margin-left: 1149px;
+}
+
+.join_btn{
+    font-size:small;
+}
+
+
+.content_bottom a{
+    text-decoration: none;
+    color: gray;
+}
+
+
+.social_info{
+    margin-top:80px;
+    text-align: center;
+}
+
+
+.social_login{
+    display:flex;
+    margin-top:20px;
+    margin-left:44.2%;
+}
+
+
+.social_info{
+    color:gray;
+}
+
+.social_login a img{
+    width:50px;
+    height:50px;
+    margin-right:20px;
+}

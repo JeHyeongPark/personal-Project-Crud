@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <link rel="stylesheet" th:href="@{/css/view.css}">
+    <title>게시글</title>
+</head>
+    <script src="/js/view.js" defer></script>
+    <script src="/js/ajaxAPI.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const contextPath = /*[[@{/}]]*/ '';
+        const token = document.head.querySelector("meta[name='_csrf']").content;
+        const header = document.head.querySelector("meta[name='_csrf_header']").content;
+    </script>
+<body>
+<header>
+    <div class="header">
+        <p>
+            <th:block th:if="${username != null}">
+                <span th:text="${nickname}"></span>님 반갑습니다.
+                <a th:href="@{/user/logout}">[로그아웃]</a>
+            </th:block>
+            <th:block th:if="${username == null}">
+                <a th:href="@{/user/login}">[로그인]</a>
+            </th:block>
+        </p>
+    </div>
+</header>
+<main>
+    <div class="content_wrap">
+        <div class="content_top" th:each="view : ${board}">
+            <div class="subject" th:text="${board.title}"></div>
+            <input type="hidden" id="boardNo" th:value="${no}">
+            <div class="for_flex">
+                <div class="for_flex1">
+                    <div class="writer" th:text="${board.name}"></div>
+                    <div class="wdate" th:text="${board.rdate}"></div>
+                </div>
+                <div class="for_flex2">
+                <a th:if="${board.uid == username}" id="del" class="btn">삭제</a>
+                <a th:if="${board.uid == username}" th:href="@{/board/modify(no=${no})}" class="btn">수정</a>
+                <a th:href="@{/}" class="btn">목록</a>
+                </div>
+            </div>
+        </div>
+        <div class="content_middle" th:utext="${board.content}"></div>
+        <div class="content_middle_bottom" id="fileDown" th:text="${board.oriname}" th:data-fno="${board.fno}"></div>
+    </div>
+    <div class="content_bottom">
+        <div class="view_amount">
+            <div>댓글</div>
+            <div class="reply_amount" th:text="${commentSize}"></div>
+        </div>
+    </div>
+    <div class="reply_view" th:each="commentList : ${commentList}">
+        <div class="areaReply">
+            <div class="infoFlex">
+                <div th:text="${commentList.name}"></div>
+                <div th:text="${commentList.rdate}"></div>
+            </div>
+            <div class="btnFlex">
+                <div class="btn" th:if="${commentList.uid == username}" th:data-cno="${commentList.cno}" th:id="'btn_co_update' + ${commentList.cno}" onclick="fnbtnUpdateComment(this.getAttribute('data-cno'))">수정</div>
+                <div class="btn" th:data-cno="${commentList.cno}" th:id="'btn_co_save' + ${commentList.cno}" style="display:none;">저장</div>
+                <div class="btn" th:if="${commentList.uid == username}" th:data-cno="${commentList.cno}" th:id="'btn_co_delete' + ${commentList.cno}" onclick="fnbtnDeleteComment(this.getAttribute('data-cno'))">삭제</div>
+                <div class="btn" th:data-cno="${commentList.cno}" th:id="'btn_co_cancel' + ${commentList.cno}" style="display:none;">취소</div>
+            </div>
+        </div>
+        <div class="reply_comment" th:id="'reply_comment' + ${commentList.cno}" th:text="${commentList.comment}"></div>
+        <textarea class="reply_update"  th:id="'reply_update' + ${commentList.cno}" th:text="${commentList.comment}" style="display: none"></textarea>
+    </div>
+    <div class="reply_write">
+        <div class="textarea_wrap">
+            <span th:text="${nickname}"></span>
+            <textarea class="textarea" id="commentTxt" placeholder="내용을 입력하세요."></textarea>
+        </div>
+        <a id="btnCoRegister" class="regist_btn">등록</a>
+    </div>
+</main>
+</body>
+</html>

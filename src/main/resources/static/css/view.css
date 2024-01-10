@@ -1,0 +1,201 @@
+/*태그 초기화*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    font: normal 12px '돋움';
+}
+ul, ol{list-style: none;}
+a {text-decoration: none; color: #111;}
+input,textarea {outline: none;}
+
+
+
+main{
+    width:90%;
+    margin:0 auto;
+}
+
+
+.header{
+    width:100%;
+    height:20px;
+    background-color: #f7f7f7;
+    text-align: right;
+    padding-top:2px;
+    font-size: small;
+    border-bottom: 1px solid darkgray;
+}
+
+.header a{
+    text-decoration: none;
+    color: gray;
+}
+
+
+.content_wrap{
+    margin-top:3%;
+    padding:5px 5px;
+}
+
+
+.subject{
+    font-size:30px;
+    font-weight:bold;
+    padding:5px 0;
+    margin-left:12px;
+    background-color: lightgray;
+    padding-left: 10px;
+    width: 100%;
+}
+
+
+.for_flex{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    margin-left:10px;
+}
+.for_flex1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+
+
+
+.for_flex2{
+    display: flex;
+    gap:3px;
+}
+
+
+
+.writer{
+    margin:0 10px;
+}
+
+
+
+.content_middle{
+    margin:20px 20px;
+}
+
+
+
+.content_middle_bottom{
+    margin-left:20px;
+    border-top:1px solid  lightgray;
+    border-bottom:1px solid  lightgray;
+    padding: 5px 0;
+}
+
+
+.content_bottom{
+    padding:10px 5px;
+}
+
+.view_amount{
+    margin-left:20px;
+    display:flex;
+    padding-top: 10px;
+}
+
+
+.reply_amount{
+    margin-left:5px;
+    color:lightblue;
+}
+
+
+.reply_view{
+    margin-left:20px;
+    padding-left:5px;
+    padding-right:5px;
+    padding-bottom:20px;
+    background-color: #f9f9fa;
+}
+
+
+
+.textarea_wrap{
+    margin-left:20px;
+    margin-top: 20px;
+    padding:10px 10px;
+    border:1px solid #e7e7e7;
+}
+
+.textarea{
+    margin-top:5px;
+    border:none;
+    width:100%;
+    height:100px;
+}
+
+
+.reply_comment{
+    margin-top:15px;
+}
+
+.btn{
+    padding:10px 10px;
+    width:60px;
+    height:40px;
+    background-color:#e7e7e7;
+    text-align:center;
+    border-radius: 3px;
+    text-decoration: none;
+    color: black;
+    line-height: 22px;
+    border: 1px solid darkgray;
+
+
+}
+
+
+
+.areaReply{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3px;
+}
+
+
+
+.infoFlex{
+    display:flex;
+    gap:3px;
+}
+
+
+.btnFlex{
+    display:flex;
+    float:right;
+    gap:3px;
+}
+
+
+.regist_btn{
+    margin-top:20px;
+    line-height: 20px;
+    padding:10px 10px;
+    width:60px;
+    height:40px;
+    background-color:#e7e7e7;
+    text-align:center;
+    border-radius: 3px;
+    text-decoration: none;
+    color: black;
+    float:right;
+    border: 1px solid darkgray;
+
+}

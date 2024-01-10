@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <title>로그인 페이지</title>
+</head>
+<script src="/js/login.js" defer></script>
+<script>
+    const contextPath = /*[[@{/}]]*/ '';
+    const token = document.head.querySelector("meta[name='_csrf']").content;
+    const header = document.head.querySelector("meta[name='_csrf_header']").content;
+</script>
+
+<body>
+<div class="content_top">
+    <div class="page_info">로그인</div>
+</div>
+    <form class="loginForm" th:action="@{/user/login}" method="post">
+        <div class="content_main">
+            <div class="input_id_row">
+                <div class="img_id"><img src="/images/id.png"></div>
+                <input type="text" class="input_id" name="uid" placeholder="아이디">
+            </div>
+            <div class="input_pw_row">
+                <div class="img_pw"><img src="/images/pw.png"></div>
+                <input type="password" class="input_pw" name="pass" placeholder="비밀번호">
+            </div>
+            <div class="login_btn_row">
+                <input type="submit" class="login_btn" value="로그인">
+            </div>
+        </div>
+    </form>
+<div class="content_bottom">
+    <a th:href="@{/user/register}" class="join_btn">회원가입</a>
+</div>
+<!--<div class="social_info">SNS 계정 간편 로그인 / 회원가입</div>
+<div class="social_login">
+    <a><img src="/images/naver.png"></a>
+    <a id="kakao_login_btn"><img src="/images/kakao.png"></a>
+    <a><img src="/images/google.png"></a>
+</div>-->
+</body>
+</html>

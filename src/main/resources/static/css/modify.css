@@ -1,0 +1,102 @@
+/*태그 초기화*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    font: normal 12px '돋움';
+}
+ul, ol{list-style: none;}
+a {text-decoration: none; color: #111;}
+input,textarea {outline: none;}
+
+
+.header{
+    width:100%;
+    height:20px;
+    background-color: #f7f7f7;
+    text-align: right;
+    padding-top:2px;
+    font-size: small;
+    border-bottom: 1px solid darkgray;
+}
+
+.header a{
+    text-decoration: none;
+    color: gray;
+}
+
+
+.content_wrap{
+    width: 94%;
+    margin: 0 auto;
+    padding:5px 5px;
+}
+
+.editor{
+    height:400px;
+}
+
+.subject{
+    font-weight:bold;
+    padding:5px 0;
+    margin: 30px 0;
+
+}
+
+.subject input{
+    height:50px;
+    border:none;
+    font-size:30px;
+    width:100%;
+    background-color: #e7e7e7;
+    border-radius: 3px;
+    padding-left: 10px;
+}
+
+
+.btn_area{
+    display: flex;
+    gap:3px;
+    justify-content: flex-end;
+    margin-right: 63px;
+}
+
+
+.btn{
+    padding:10px 10px;
+    width:80px;
+    height:40px;
+    background-color:#e7e7e7;
+    text-align:center;
+    border-radius: 3px;
+    text-decoration: none;
+    color: black;
+    line-height: 25px;
+    border: 1px solid darkgray;
+}
+
+
+.file_wrap{
+    display: flex;
+    gap:3px;
+}
+
+.delete_file{
+    background-color: lightgray;
+    width: 25px;
+    height: 15px;
+    border-radius: 3px;
+    text-align: center;
+}
+
+
+.button-area{
+    display:flex;
+    gap: 3px;
+    justify-content: flex-end;
+
+}
+
+
+

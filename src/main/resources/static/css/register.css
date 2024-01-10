@@ -1,0 +1,147 @@
+/*태그 초기화*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    font: normal 12px '돋움';
+}
+ul, ol{list-style: none;}
+a {text-decoration: none; color: #111;}
+input,textarea {outline: none;}
+
+
+
+.content_top{
+    font-size:25px;
+    width:100%;
+    margin-top:5%;
+    text-align:center;
+}
+
+
+.content_main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+
+.content_main table {
+    width: 500px;
+    height: 100px;
+    border-collapse:collapse;
+}
+
+.tb_middle {
+    margin: 10px 0;
+}
+
+
+
+.content_main table tr{
+    border:1px solid #c6c6c6;
+}
+
+.content_main table th {
+    padding: 10px 0;
+}
+
+.content_main table th img{
+    width:35px;
+    height:35px;
+}
+
+.content_main table td {
+    padding: 10px 0;
+}
+
+.content_main table td input{
+    width:90%;
+    height:40px;
+    border:none;
+    outline: none;
+}
+
+
+.post_code{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.tb_bottom th{
+    width:98px;
+}
+
+.post_code_write{
+    width:100px !important;
+    border:1px solid #c6c6c6 !important;
+}
+
+.post_code_box{
+    width:70px !important;
+}
+
+
+.check_info{
+    color: red;
+    margin-top:7px;
+}
+
+.check_post{
+    color: red;
+    margin-top:7px;
+}
+
+
+.check_info2{
+    color: red;
+    margin-bottom:7px;
+}
+
+.input_id{
+    padding-left:3px;
+}
+
+.input_pw{
+    padding-left:3px;
+}
+
+.input_pw_ck{
+    padding-left:3px;
+}
+
+.regist_postcode{
+    padding-left:3px;
+}
+
+.post_code_write{
+    padding-left:3px;
+}
+
+
+.regist_button{
+    background-color: #e7e7e7;
+    text-align: center;
+    width: 90px;
+    height: 50px;
+    line-height: 55px;
+    margin-top:10px;
+}
+
+
+.content_wrap{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    align-items: flex-end;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    <title>회원가입</title>
+</head>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="/js/register.js" defer></script>
+    <script src="/js/ajaxAPI.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        const contextPath = /*[[@{/}]]*/ '';
+        const token = document.head.querySelector("meta[name='_csrf']").content;
+        const header = document.head.querySelector("meta[name='_csrf_header']").content;
+    </script>
+
+<body>
+<div class="content_top">
+    <div class="page_info">회원가입</div>
+</div>
+<div class="content_wrap">
+    <div class="content_main">
+        <table class="tb_top">
+            <tr>
+                <th><div class="img_id"><img src="/images/id.png"></div></th>
+                <td><input type="text" id="regist_id" class="input_id" placeholder="아이디"></td>
+            </tr>
+            <tr>
+                <th><div class="img_pw"><img src="/images/pw.png"></div></th>
+                <td><input type="password" id="regist_pw" class="input_pw" placeholder="비밀번호"></td>
+            </tr>
+            <tr>
+                <th><div class="img_pw"><img src="/images/pw.png"></div></th>
+                <td><input type="password" id="regist_pwc" class="input_pw_ck" placeholder="비밀번호 확인"></td>
+            </tr>
+        </table>
+        <div class="check_info">
+            <div class="check_id" id="check_id2" style=display:none>* 아이디: 필수 정보 입니다.</div>
+            <div class="check_id" id="check_id1" style=display:none>* 아이디: 6~12자리의 영문과 숫자만 입력 가능합니다.</div>
+            <div class="check_pw" id="check_pw" style=display:none>* 비밀번호: 필수 정보 입니다.</div>
+            <div class="check_pw" id="check_pw2" style=display:none>* 비밀번호: 6~12자리의 영문과 숫자만 입력 가능합니다.</div>
+            <div class="check_pwc" id="check_pwc" style=display:none>* 비밀번호가 일치하지 않습니다.</div>
+        </div>
+        <table class="tb_middle">
+            <tr>
+                <th><div class="img_id"><img src="/images/name.png"></div></th>
+                <td><input type="text" id="regist_name" class="input_name" placeholder="이름"></td>
+            </tr>
+            <tr>
+                <th><div class="img_birth"><img src="/images/birthday.png"></div></th>
+                <td><input type="text" id="regist_birth" class="input_birth" placeholder="생년월일 8자리"></td>
+            </tr>
+            <tr>
+                <th><div class="img_phone"><img src="/images/phone.png"></div></th>
+                <td><input type="text" id="regist_hp" class="input_phone" placeholder="휴대전화번호 ( - 제외 )"></td>
+            </tr>
+        </table>
+        <div class="check_info2">
+            <div class="check_name" id="check_name" style=display:none>* 이름: 필수 정보 입니다.</div>
+            <div class="check_name" id="check_name2" style=display:none>* 이름: 한글 또는 영문만 입력 가능합니다.</div>
+            <div class="check_birth" id="check_birth" style=display:none>* 생년월일: 필수 정보 입니다.</div>
+            <div class="check_birth" id="check_birth2" style=display:none>* 생년월일: 8자리의 숫자만 입력 가능합니다.</div>
+            <div class="check_ph" id="check_ph" style=display:none>* 휴대전화번호: 필수 정보 입니다.</div>
+            <div class="check_ph2" id="check_ph2" style=display:none>* 휴대전화번호: 숫자 11자리만 입력 가능합니다.</div>
+        </div>
+        <table class="tb_bottom">
+            <tr>
+                <th rowspan="3"><div class="img_address"><img src="/images/address.png"></div></th>
+                <td>
+                    <div class="post_code">
+                        <input type="text" id="regist_postcode" class="post_code_write" placeholder="우편번호" readonly>
+                        <input type="button" id="post_code" class="post_code_box" value="우편번호">
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="text" class="input_address" id="regist_addr" placeholder="기본주소" readonly></td>
+            </tr>
+            <tr>
+                <td><input type="text" id="regist_addr2" placeholder="나머지주소 (선택입력 가능)"></td>
+            </tr>
+        </table>
+        <div class="check_post" id="check_post" style=display:none>* 우편번호는 필수 입니다.</div>
+    </div>
+    <div class="content_bottom">
+        <div class="join_btn">
+            <div class="regist_button" id="regist_button">회원가입</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

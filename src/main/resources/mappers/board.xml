@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace="kr.co.crud.dao.BoardDAO">
+
+    <!--게시글 목록-->
+    <select id="selectBoardList" parameterType="kr.co.crud.utils.SearchCondition" resultType="kr.co.crud.domain.BoardVO">
+        SELECT
+            NO,
+            TITLE,
+            B.UID,
+            B.RDATE,
+            HIT,
+            NAME
+        FROM
+            CRUD_BOARD B
+        JOIN
+            CRUD_USER U
+        ON
+            B.UID = U.UID
+        WHERE
+            DEL_YN = 'N'
+        <if test="searchField != null">
+            <choose>
+                <when test ="searchField == 'title'">
+                    AND TITLE LIKE CONCAT('%', #{searchWord}, '%')
+                </when>
+                <when test ="searchField == 'uid'">
+                    AND UID LIKE CONCAT('%', #{searchWord}, '%')
+                </when>
+            </choose>
+        </if>
+        ORDER BY
+            B.RDATE DESC
+        LIMIT
+            #{offset}, 10
+    </select>
+
+
+    <!-- 게시글 개수 -->
+    <select id ="countBoard" parameterType="kr.co.crud.utils.SearchCondition" resultType="int">
+        SELECT
+            COUNT(*)
+        FROM
+            CRUD_BOARD B
+        JOIN
+            CRUD_USER U
+        ON
+            B.UID = U.UID
+        WHERE
+            DEL_YN = 'N'
+        <if test="searchField != null">
+            <choose>
+                <when test ="searchField == 'title'">
+                    AND TITLE LIKE CONCAT('%', #{searchWord}, '%')
+                </when>
+                <when test ="searchField == 'uid'">
+                    AND UID LIKE CONCAT('%', #{searchWord}, '%')
+                </when>
+            </choose>
+        </if>
+    </select>
+
+
+
+    <!-- 파일 선택 -->
+    <select id="selectFile" resultType="kr.co.crud.domain.FileVO" parameterType="kr.co.crud.domain.FileVO">
+        SELECT
+            ORINAME
+        FROM
+            CRUD_FILE
+        WHERE
+            FNO=#{fno}
+        AND
+            DEL_YN = 'N'
+    </select>
+
+
+
+
+    <!--게시글 insert-->
+    <insert id="insertBoard" parameterType="kr.co.crud.domain.BoardVO">
+        INSERT INTO
+            CRUD_BOARD
+        SET
+            NO = #{no},
+            TITLE = #{title},
+            CONTENT = #{content},
+            UID = #{uid}
+        </insert>
+
+
+
+    <!--파일 이름 insert-->
+    <insert id="insertFile" parameterType="kr.co.crud.domain.FileVO">
+        INSERT INTO
+            CRUD_FILE
+        SET
+            PARENT = #{parent},
+            NEWNAME = #{newName},
+            ORINAME = #{oriName}
+    </insert>
+
+
+    <!--게시글 상세보기-->
+    <select id="selectBoard" resultType="kr.co.crud.domain.BoardVO" parameterType="kr.co.crud.domain.BoardVO">
+    SELECT
+        TITLE,
+        B.UID,
+        B.RDATE,
+        HIT,
+        CONTENT,
+        NEWNAME,
+        ORINAME,
+        FNO,
+        NAME
+    FROM
+        CRUD_BOARD B
+    JOIN
+        CRUD_USER U
+    ON
+        B.UID = U.UID
+    LEFT JOIN CRUD_FILE F ON B.NO = F.PARENT
+    WHERE
+        NO = #{no}
+    </select>
+
+    <!--조회수 증가-->
+    <update id="updatehit" parameterType="kr.co.crud.domain.BoardVO">
+        UPDATE
+            CRUD_BOARD
+        SET
+            HIT = HIT + 1
+        WHERE
+            NO = #{no}
+    </update>
+
+
+
+    <!-- 게시글 수정 -->
+    <update id="updateBoard" parameterType="kr.co.crud.domain.BoardVO">
+        UPDATE
+            CRUD_BOARD
+        SET
+            TITLE = #{title},
+            CONTENT = #{content}
+        WHERE
+            NO = #{no}
+    </update>
+
+
+    <!-- 파일 수정 -->
+    <update id="updateFile" parameterType="kr.co.crud.domain.FileVO">
+        UPDATE
+            CRUD_FILE
+        SET
+           NEWNAME = #{newName},
+           ORINAME = #{oriName}
+        WHERE
+            FNO = #{fno}
+    </update>
+
+
+    <!--게시글 삭제-->
+    <update id="deleteBoard" parameterType="kr.co.crud.domain.BoardVO">
+        UPDATE
+            CRUD_BOARD
+        SET
+            DEL_YN = 'Y'
+        WHERE
+            NO = #{no}
+    </update>
+
+
+    <!-- 댓글 등록 -->
+    <insert id="commentInsert" parameterType="kr.co.crud.domain.CommentVO">
+        INSERT INTO
+            CRUD_COMMENT
+        SET
+            PARENT = #{no},
+            COMMENT = #{comment},
+            UID = #{uid}
+        </insert>
+
+
+    <!-- 댓글 목록 보기 -->
+    <select id="selectComment" parameterType="kr.co.crud.domain.CommentVO" resultType="kr.co.crud.domain.CommentVO">
+        SELECT
+            CNO,
+            COMMENT,
+            C.RDATE,
+            C.UID,
+            NAME
+        FROM
+            CRUD_COMMENT C
+        JOIN
+            CRUD_USER U
+        ON
+            C.UID = U.UID
+        WHERE
+            PARENT = #{no}
+        AND
+            C.DEL_YN = 'N'
+        ORDER BY
+            C.RDATE ASC
+    </select>
+
+
+
+    <!-- 댓글 수정 -->
+    <update id="updateComment" parameterType="kr.co.crud.domain.CommentVO">
+        UPDATE
+            CRUD_COMMENT
+        SET
+            COMMENT = #{comment}
+        WHERE
+            CNO = #{cno}
+    </update>
+
+
+    <!-- 댓글 삭제 -->
+    <update id="deleteComment" parameterType="kr.co.crud.domain.CommentVO">
+        UPDATE
+            CRUD_COMMENT
+        SET
+            DEL_YN = 'Y'
+        WHERE
+            CNO = #{cno}
+    </update>
+
+
+
+
+
+</mapper>

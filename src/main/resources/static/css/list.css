@@ -1,0 +1,163 @@
+/*태그 초기화*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border-collapse: collapse;
+    font: normal 12px '돋움';
+}
+ul, ol{list-style: none;}
+a {text-decoration: none; color: #111;}
+input,textarea {outline: none;}
+
+.header{
+    width:100%;
+    height:20px;
+    background-color: #f7f7f7;
+    text-align: right;
+    padding-top:2px;
+    font-size: small;
+    border-bottom: 1px solid darkgray;
+}
+
+.header a{
+    text-decoration: none;
+    color: gray;
+}
+
+
+.content_top{
+    width:100%;
+    margin-top:3%;
+    text-align:center;
+}
+
+
+.search{
+    display: flex;
+    margin-top: 15px;
+    width: 95%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap:3px;
+}
+
+
+
+.search select{
+    padding:10px 5px;
+}
+
+
+.search button{
+    background-color: #ebebea;
+    border:none;
+    padding:0px 15px;
+    border: 1px solid darkgray;
+}
+
+
+.content_middle table{
+    width:90%;
+    border-top:1px solid darkgray;
+    border-collapse: collapse;
+    margin-top:1%;
+    margin-left:5%;
+    text-align: center;
+}
+
+
+
+.content_middle table th{
+    background:#ebebea;
+    height:40px;
+}
+
+
+.content_middle table td{
+    border-bottom:1px solid darkgray;
+    height:40px;
+}
+
+.content_bottom{
+    display: flex;
+    justify-content: center;
+    width:100%;
+    text-align:center;
+    margin:15px 0;
+    gap:3px;
+}
+
+
+.content_bottom .prev{
+    background-color: #f7f7f7;
+    width:60px;
+    height:40px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    line-height: 45px;
+}
+
+.content_bottom .num_current{
+    background-color: #f7f7f7;
+    width:60px;
+    height:40px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    line-height: 45px;
+}
+
+.content_bottom .num{
+    background-color: #f7f7f7;
+    width:30px;
+    height:30px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    line-height: 32px;
+    border: 1px solid darkgray;
+}
+
+.content_bottom .forth{
+    background-color: #f7f7f7;
+    width:60px;
+    height:40px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    line-height: 45px;
+}
+
+.btns{
+    display: flex;
+    width: 95%;
+    height: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.btns .del_btn{
+    background-color: #f7f7f7;
+    width:70px;
+    height:50px;
+    margin:0 5px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    line-height: 50px;
+}
+
+.btns .write_btn{
+    background-color: #f7f7f7;
+    width:50px;
+    height:30px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <link rel="stylesheet" th:href="@{/css/modify.css}">
+    <title>게시글 수정</title>
+</head>
+    <script src="/js/modify.js" defer></script>
+    <script src="/js/ajaxAPI.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/smarteditor/js/HuskyEZCreator.js" charset="utf-8"></script>
+    <script>
+        const contextPath = /*[[@{/}]]*/ '';
+        const token = document.head.querySelector("meta[name='_csrf']").content;
+        const header = document.head.querySelector("meta[name='_csrf_header']").content;
+    </script>
+<body>
+<header>
+    <div class="header">
+        <p>
+            <th:block th:if="${username != null}">
+                <span th:text="${nickname}"></span>님 반갑습니다.
+                <a th:href="@{/user/logout}">[로그아웃]</a>
+            </th:block>
+            <th:block th:if="${username == null}">
+                <a th:href="@{/user/login}">[로그인]</a>
+            </th:block>
+        </p>
+    </div>
+</header>
+<main>
+    <div class="content_wrap">
+        <div class="content_top">
+            <div class="subject"  th:each="board : ${board}">
+                <input type="text" id="title" placeholder="제목을 입력해주세요" th:value="${board.title}">
+                <input type="hidden" id="no" th:value="${no}">
+            </div>
+        </div>
+        <div class="content_middle">
+            <textarea name="editorTxt" class="editor" id="editorTxt" rows=40 cols="30" style="width: 100%" th:text="${board.content}"></textarea>
+        </div>
+        <div class="file_wrap">
+            <div class="content_middle_bottom" id="list_file" th:text="${board.oriname}"></div>
+            <div class="delete_file" id="delete_file">X</div>
+            <input type="file" class="regist_file" th:data-fno="${board.fno}" id="fileupload" style=display:none>
+        </div>
+    <div class="button-area">
+        <a href="#" class="btn" id="btnSave">수정</a>
+        <a th:href="@{/}" class="btn">취소</a>
+    </div>
+    </div>
+</main>
+</body>
+</html>
