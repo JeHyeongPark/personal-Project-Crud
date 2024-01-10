@@ -1,2 +1,6 @@
-# Project-CRUD
-# Project-Crud
+## project-board
+
+### Spring Boot DB 연동 
+### 스프링 시큐리티 회원가입(유효성) 및 로그인
+### CRUD (게시글 목록, 작성, 수정, 삭제 + 댓글 목록, 작성, 수정, 삭제 + 파일 업로드 및 파일 다운로드) 
+### 하단 페이징 
